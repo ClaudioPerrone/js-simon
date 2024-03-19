@@ -10,7 +10,9 @@ Descrizione:
 
 
 //INPUT DATI
-
+//Creo un array con 5 numeri random da 1 a 100
+const numbers = [];
+console.log(numbers);
 
 //ELABORAZIONE DATI
 
