@@ -15,6 +15,11 @@ const numbers = [];
 console.log(numbers);
 
 //ELABORAZIONE DATI
-
+//Creo 5 numeri random da 1 a 100
+for (let i = 0; i < 5; i++){
+    //Push i numeri random nell'array
+    let random = Math.floor(Math.random() * 100) + 1;
+    numbers.push(random)
+}
 
 //OUTPUT DATI
