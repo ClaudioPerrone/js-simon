@@ -9,9 +9,13 @@ Descrizione:
 */
 
 //INPUT DATI
+
+const userText = document.querySelector('#user-text');
 //Evoco la funzione per generare un array di 5 numeri casuali compresi tra 1 e 100
-const arrayNumbers = generateRandomArray(5, 1, 10);
-//console.log(arrayNumbers);
+const arrayNumbers = generateRandomArray(5, 1, 100);
+userText.innerHTML = arrayNumbers;
+console.log(arrayNumbers);
+console.log(userText);
 
 //Timer per i 5 prompt di TOT secondi
 const timer = 5000;
@@ -19,21 +23,11 @@ setTimeout(promptNumbers, timer);
 //console.log(promptArray);
 
 //ELABORAZIONE DATI
-if (setTimeout === 0){
-    if(randomNumbers === promptNumbers){
-        console.log("Hai indovinato");
-    } else{
-        console.log("Non hai indovinato");
-    }
-}
 
 
 
 //OUTPUT DATI
-//Ottengo il riferimento all'elemento HTML con id "array"
-let arrayElement = document.querySelector('#arrayRandom');
-//Visualizzo l'array nella pagina convertendolo in una stringa
-arrayElement.textContent = arrayNumbers.join(', ');
+
 
 /*--------------------------*/
 //FUNCTIONS
