@@ -9,7 +9,7 @@ Descrizione:
 */
 
 //INPUT DATI
-
+//Mi collego al div
 const userText = document.querySelector('#user-text');
 //Evoco la funzione per generare un array di 5 numeri casuali compresi tra 1 e 100
 const arrayNumbers = generateRandomArray(5, 1, 100);
@@ -17,15 +17,14 @@ userText.innerHTML = arrayNumbers;
 console.log(arrayNumbers);
 console.log(userText);
 
-//Timer per i 5 prompt di TOT secondi
+//ELABORAZIONE DATI
+//Dopo 30 sec dall'inizio del codice viene ripulita la pagina
+setTimeout(emptyPage, 2000);
+//Dopo 31 sec dall'inizio del codice Vengono chiesti i 5 numeri
+setTimeout(guessedNumbers(), 2000);
 const timer = 5000;
 setTimeout(promptNumbers, timer);
 //console.log(promptArray);
-
-//ELABORAZIONE DATI
-
-
-
 //OUTPUT DATI
 
 
@@ -39,7 +38,6 @@ setTimeout(promptNumbers, timer);
 // return: un array di arrayLength numeri random
 
 //const arrayNumbers = generateRandomArray(nx, ny, nz);
-
 function generateRandomArray(arrayLength, numMin, numMax) {
     // Creiamo un array vuoto
     const randomNumbersArray = [];
@@ -62,14 +60,22 @@ function getRndInteger(min, max) {
 }
 /*---------------------*/
 /*---------------------*/
-//Creo 5 prompt per inserire i numeri
-function promptNumbers(){
-    let promptArray = [];
+//Funzione per svuotsre la schermata
+function emptyPage(){
+    //Svuoto la schermata
+    userText.innerHTML = "";
+}
+/*---------------------*/
+/*---------------------*/
+//Funzione per i 5 prompt
+function guessedNumbers(){
+    //Creo 5 prompt per inserire i numeri
+    //Creo l'array
+    const promptArray = [];
     for (let i = 0; i < 5; i++){
         let numberPrompt = parseInt(prompt("Inserisci i numeri uno alla volta"));
-        promptArray.push(numberPrompt);
+        console.log(numberPrompt);
     }
     //console.log(promptArray);
-    return promptArray;
 }
 /*---------------------*/
