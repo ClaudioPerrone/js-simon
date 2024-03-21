@@ -15,16 +15,13 @@ const userText = document.querySelector('#user-text');
 const arrayNumbers = generateRandomArray(5, 1, 100);
 userText.innerHTML = arrayNumbers;
 console.log(arrayNumbers);
-console.log(userText);
 
 //ELABORAZIONE DATI
 //Dopo 30 sec dall'inizio del codice viene ripulita la pagina
-setTimeout(emptyPage, 2000);
+setTimeout(emptyPage, 3000);
 //Dopo 31 sec dall'inizio del codice Vengono chiesti i 5 numeri
-setTimeout(guessedNumbers(), 2000);
-const timer = 5000;
-setTimeout(promptNumbers, timer);
-//console.log(promptArray);
+setTimeout(guessedNumbers, 3100);
+
 //OUTPUT DATI
 
 
@@ -41,7 +38,6 @@ setTimeout(promptNumbers, timer);
 function generateRandomArray(arrayLength, numMin, numMax) {
     // Creiamo un array vuoto
     const randomNumbersArray = [];
-
     // finche non ci sono arrayLength numeri nell'array:
     while(randomNumbersArray.length < arrayLength) {
         // genero un numero random
@@ -51,10 +47,8 @@ function generateRandomArray(arrayLength, numMin, numMax) {
             randomNumbersArray.push(randNumber);
         }
     }
-    
     return randomNumbersArray;
 }
-
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
@@ -73,9 +67,13 @@ function guessedNumbers(){
     //Creo l'array
     const promptArray = [];
     for (let i = 0; i < 5; i++){
-        let numberPrompt = parseInt(prompt("Inserisci i numeri uno alla volta"));
+        const numberPrompt = parseInt(prompt("Inserisci i numeri uno alla volta"));
         console.log(numberPrompt);
+        //console.log(promptArray);
+        if (arrayNumbers.includes(numberPrompt) && !promptArray.includes(randNumber)){
+            promptArray.push(numberPrompt);
+        }
     }
-    //console.log(promptArray);
+    userText.innerHTML = `Hai indovinato ${promptArray.length} numeri. I numeri sono: ${promptArray}`;
 }
 /*---------------------*/
